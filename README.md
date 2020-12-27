@@ -61,7 +61,7 @@ The code is written in python3, requiring python packages scipy *(both)* and *rp
 python NHC_code_patient_only.py -p test_patients.txt
 ```
 ```
-python NHC_code_patient_vs_controls.py -p test_patients.txt -c test_controls.txt -pc test_pc.txt
+python NHC_code_patient_vs_control.py -p test_patients.txt -c test_controls.txt -pc test_pc.txt
 ```
 
 **Customizable parameters:**
@@ -69,7 +69,7 @@ python NHC_code_patient_vs_controls.py -p test_patients.txt -c test_controls.txt
 python NHC_code_patient_only.py -p <txt> -w <txt> -b <int> -m <float>
 ```
 ```
-python NHC_code_patient_vs_controls.py -p <txt> -c <txt> -pc <txt> -w <float> -b <int> -m <float>
+python NHC_code_patient_vs_control.py -p <txt> -c <txt> -pc <txt> -w <float> -b <int> -m <float>
 ```
 
 ### Parameters
