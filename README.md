@@ -41,7 +41,7 @@ The code is written in python3, requiring python packages scipy *(both)* and *rp
 - column 1: sample ID
 - column 2-4: first 3 PC values for each sample
 
-**Output:** Gene clusters in patients *(example: test_patients_output_gene_clusters.patient_only.txt, test_patients_output_gene_clusters.patient_vs_controls.txt)*
+**Output:** Gene clusters in patients *(example: test_patients_NHC_output.patient_only.txt, test_patients_NHC_output.patient_vs_control.txt)*
 - tab-delimited text file, including a header line
 - columns:
   - Cluster ID
