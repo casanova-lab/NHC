@@ -91,7 +91,7 @@ Parameter | Type | Description | Default
 - *Casanova J.L. & Abel L.* The human genetic determinism of life-threatening infectious diseases: genetic heterogeneity and physiological homogeneity? *Hum Genet* (2020) [PubMed](https://pubmed.ncbi.nlm.nih.gov/32462426/)
 - *McClellan J. & King M.C.* Genetic heterogeneity in human disease. *Cell* (2010) [PubMed](https://pubmed.ncbi.nlm.nih.gov/20403315/)
 - *Povysil G. et al.* Rare-variant collapsing analyses for complex traits: guidelines and applications. *Nat Rev Genet* (2019) [PubMed](https://pubmed.ncbi.nlm.nih.gov/31605095/)
-- *Itan, Y. et al.* The human gene connectome as a map of short cuts for morbid allele discovery. *PNAS* (2013) [PubMed](https://pubmed.ncbi.nlm.nih.gov/23509278/)
+- *Itan Y. et al.* The human gene connectome as a map of short cuts for morbid allele discovery. *PNAS* (2013) [PubMed](https://pubmed.ncbi.nlm.nih.gov/23509278/)
 
 ## Contact
 > **Author:** Peng Zhang
