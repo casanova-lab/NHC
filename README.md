@@ -28,7 +28,7 @@ Although the goal of our method is to detect presumably deleterious mutations in
 The code is written in python3, requiring python packages scipy *(both)* and *rpy2 (only in patient_vs_control)*
 
 ### Illustration  
-![Image of NHC_Fig2](http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig_2xxxx.png)
+![Image of NHC_Fig2](http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig_2.png)
 
 ### File Format
 **Input:** Gene list in patients and controls *(example: test_patients.txt, test_controls.txt)*
