@@ -7,13 +7,13 @@ The human genetic dissection of a growing range of clinical phenotypes is facing
 ## Method Introduction
 We are providing the codes for gene clustering for (1) patient cohort only and (2) patient cohort vs control cohort.
 
-Although the goal of our method is to detect presumably deleterious mutations in genes with close biological relevance from a cohort of patients, it is difficult to provide the code starting from varaint-level processing, as the variant data format and the variant filtration criteria vary hugely from one lab to another, and from one study to another. Therefore, we leave the variant-level processing to each user, and the users need to prepare the gene list for all the individuals under study. Our code works on gene-level, and converges the genes carrying qualifying variants into gene clusters with pathway enrichment.
+Although the goal of our method is to detect presumably deleterious mutations in genes with close biological relevance from a cohort of patients, it is difficult to provide the code starting from variant-level processing, as the variant data format and the variant filtration criteria vary hugely from one lab to another, and from one study to another. Therefore, we leave the variant-level processing to each user, and the users need to prepare the gene list for all the individuals under study. Our code works on gene-level, and converges the genes carrying qualifying variants into gene clusters with pathway enrichment.
 
 ### Flowchart
 ![Image of NHC_Fig1](http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig_1.png)
 
 ### Brief Description
-- A large-scale network of biological interaction is established, by integrating the human protein-protein interations (PPIs) from BioGRID, IntAct and REACTOME databases. PPIs are weighted by using the scores from STRING database to represent the level of biological relevance between genes. Therefore, we obtained an edge-weighted background biological network of 202,057 PPIs for 15,585 human genes.
+- A large-scale network of biological interaction is established, by integrating the human protein-protein interactions (PPIs) from BioGRID, IntAct and REACTOME databases. PPIs are weighted by using the scores from STRING database to represent the level of biological relevance between genes. Therefore, we obtained an edge-weighted background biological network of 202,057 PPIs for 15,585 human genes.
 
 - By providing the gene list in patient cohort after variant filtration, our method traverses all genes of all patients in the edge-weighted background network, and iteratively converge genes with biological proximity into gene clusters. The algorithm starts from one gene of one patient, and iteratively searches for the closest gene in the rest of the patients that is above the edge-weight cutoff, where we used a stringent cutoff (STRING score ≥ 0.99 as default) to converge the gene clusters of the highest biological relevance. Each round of clustering stops when all patients have been visited or no other gene in the unvisited patients is above the edge-weight cutoff, and then outputs one gene cluster and its corresponding patient cluster. The algorithm will resume the clustering by starting from another gene of this patient, until every gene of every patient has been used as the start point for clustering once.
 
@@ -21,7 +21,7 @@ Although the goal of our method is to detect presumably deleterious mutations in
 
 - Determine the statistical significance of each gene cluster in patients versus controls by principle components (PC) adjusted cluster-level enrichment. *(this step will be skipped, if users choose to run our method for patient cohort only)*
 
-- Enrichement will be conducted on 1,720 pathways (187 KEGG pathways and 1,533 REACTOME pathways), collected from MSigDB database. We use p-value 1e-5 as the significance cutoff for pathway enrichment, and assign the most-enriched pathway (the pathway with the lowest p-value) to surrogate the primary physiological nature of each gene cluster.
+- Enrichment will be conducted on 1,720 pathways (187 KEGG pathways and 1,533 REACTOME pathways), collected from MSigDB database. We use p-value 1e-5 as the significance cutoff for pathway enrichment, and assign the most-enriched pathway (the pathway with the lowest p-value) to surrogate the primary physiological nature of each gene cluster.
 
 ## Usage
 ### Dependency
@@ -83,7 +83,7 @@ Parameter | Type | Description | Default
 *-m*|float|***m***erge overlapped clusters (overlapping ratio = common/union genes)|0.5
 
 ***Note:***
-- *Strigent edge-weight cutoff (defalut 0.99) is used to converge the gene clusters of the highest biological relevance. If the patient cohort is small or the gene candidates are few, the users could relax the edge-weight cutoff to 0.95, 0.9, but no lower than 0.7 (as STRING determines 0.7 as low-confidence cutoff).*
+- *Stringent edge-weight cutoff (default 0.99) is used to converge the gene clusters of the highest biological relevance. If the patient cohort is small or the gene candidates are few, the users could relax the edge-weight cutoff to 0.95, 0.9, but no lower than 0.7 (as STRING determines 0.7 as low-confidence cutoff).*
 - *Hub gene removal is to avoid super-huge clusters that are formed due to the hub genes have huge amount of interacting genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (NHC_data_connectivity.txt). The default value (-b 50) means: we are skipping the genes having more than 50 PPIs with edge-weight > 0.9 for clustering. If users want to include all genes for clustering, use (-b 0).*
 
 ## References
