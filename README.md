@@ -1,5 +1,5 @@
 # NHC (Network-based Heterogeneity Clustering)
-NHC: A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity
+NHC: A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity (LICENSE: CC BY-NC-ND 4.0)
 
 ## Background
 The human genetic dissection of a growing range of clinical phenotypes is facing the challenge of genetic heterogeneity. Emerging data suggest that physiological homogeneity connects the products of genes whose variations underlie a given phenotype. While gene burden approaches have been used to identify genetic signals in case-control studies, it is underpowered in genetically heterogenous cohorts, and does not account for biological relevance between genes. We therefore developed a computational genome-wide method to detect physiological homogeneity in the midst of genetic heterogeneity. Simulation studies and real patient cohort studies showed that our NHC method is able to systematically converge genes of biological proximity on a background biological interaction network, and capture the gene clusters that harbor presumably deleterious mutations, in an efficient and unbiased manner. 
