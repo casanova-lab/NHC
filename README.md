@@ -81,13 +81,13 @@ python NHC_case_vs_control.py -case <txt> -ctl <txt> -pc <txt> -w <float> -b <in
 ### Parameters
 Parameter | Type | Description | Default
 ----------|------|-------------|--------------
-*-case*|text file|gene list per case (incl. a header line)|na
-*-ctl*|text file|gene list per control (incl. a header line)|na
-*-pc*|text file|3 pc value for all samples (incl. a header line)|na
+*-case*|file|gene list per case (incl. a header line)|na
+*-ctl*|file|gene list per control (incl. a header line)|na
+*-pc*|file|3 pc value for all samples (incl. a header line)|na
 *-w*|float|edge-weight cutoff, based on STRING score [0~1]|0.99
 *-b*|int|remove hub genes with high connectivity, use 0 to include all genes|50
 *-m*|float|merge overlapped clusters (overlapping ratio = common/union genes)|0.5
-*-o*|text file|output filename|output_timestamp.txt
+*-o*|text|output filename|output_timestamp.txt
 
 ***Note:***
 - *Stringent edge-weight cutoff (default 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, the users could relax the edge-weight cutoff to 0.95, 0.9, but no lower than 0.7 (as STRING determines 0.7 as low-confidence cutoff).*
@@ -102,7 +102,7 @@ Parameter | Type | Description | Default
 - *Itan Y. et al.* The human gene connectome as a map of short cuts for morbid allele discovery. *PNAS* (2013) [PubMed](https://pubmed.ncbi.nlm.nih.gov/23509278/)
 
 ## Contact
-> **Author:** Peng Zhang
+> **Author:** Peng Zhang Ph.D.
 
 > **Email:** pzhang@rockefeller.edu
 
