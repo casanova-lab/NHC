@@ -29,7 +29,7 @@ Although the goal of our method is to detect presumably deleterious mutations in
 
 ## Usage
 ### Dependency
-The code is written in python3, requiring python packages scipy *(both)* and *rpy2 (only in case_vs_control)*
+The code is written in python3, requiring python packages scipy *(case only, case vs control)* and *rpy2 (case vs control)*
 
 ### Illustration  
 ![Image of NHC_Fig2](http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig2_Files.png)
@@ -102,7 +102,7 @@ Parameter | Type | Description | Default
 - *Itan Y. et al.* The human gene connectome as a map of short cuts for morbid allele discovery. *PNAS* (2013) [PubMed](https://pubmed.ncbi.nlm.nih.gov/23509278/)
 
 ## Contact
-> **Author:** Peng Zhang Ph.D.
+> **Author:** Peng Zhang, Ph.D.
 
 > **Email:** pzhang@rockefeller.edu
 
