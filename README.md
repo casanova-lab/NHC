@@ -33,7 +33,7 @@ The code is written in python3, requiring python packages scipy *(case only, cas
 
 ### Illustration  
 ![Image of NHC_Fig2](http://shiva.rockefeller.edu/NHC/NHC_GitHub_Figure2.png)
-<img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Figure2.png" width="500" height="500">
+<img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Figure2.png" width="70%" height="70%">
 
 ### File Format
 **Input:** Gene list in cases and controls *(example: test_cases.txt, test_controls.txt)*
