@@ -32,7 +32,7 @@ Although the goal of our method is to detect presumably deleterious mutations in
 The code is written in python3, requiring python packages scipy *(case only, case-control)* and *rpy2 (case-control)*
 
 ### Illustration  
-<img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Figure2.png" width="70%" height="70%">
+<img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Figure2.png" width="77%" height="77%">
 
 ### File Format
 **Input:** Gene list in cases and controls *(example: test_cases.txt, test_controls.txt)*
