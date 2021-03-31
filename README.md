@@ -12,7 +12,7 @@ We are providing the codes for gene clustering for (1) case cohort only and (2) 
 Although the goal of our method is to detect presumably deleterious mutations in genes with close biological relevance from a cohort of cases with the same disease, it is difficult to provide the code starting from variant-level processing, as the variant data format and the variant filtration criteria vary hugely from one lab to another, and from one study to another. Therefore, we leave the variant-level processing to the users, who need to prepare the gene list for all the individuals under study. Our code works on gene-level, and converges the genes carrying qualifying variants into gene clusters with pathway and gene ontology enrichment.
 
 ### Flowchart
-![Image of NHC_Fig1](http://shiva.rockefeller.edu/NHC/NHC_GitHub_Figure1.png)
+<img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Figure1.png" width="70%" height="70%">
 
 ### Brief Description
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on BioGRID, IntAct and REACTOME databases. PPIs are weighted by using the scores from STRING database to represent the level of biological relevance between genes. We obtained an edge-weighted background biological network of 202,057 PPIs for 15,585 human genes.
@@ -32,7 +32,6 @@ Although the goal of our method is to detect presumably deleterious mutations in
 The code is written in python3, requiring python packages scipy *(case only, case-control)* and *rpy2 (case-control)*
 
 ### Illustration  
-![Image of NHC_Fig2](http://shiva.rockefeller.edu/NHC/NHC_GitHub_Figure2.png)
 <img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Figure2.png" width="70%" height="70%">
 
 ### File Format
