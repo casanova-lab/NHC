@@ -7,7 +7,7 @@ The human genetic dissection of a growing range of clinical phenotypes is facing
 We therefore developed a computational genome-wide method (NHC) to systematically converge genes of biological proximity on a background biological interaction network, and capture the gene clusters that harbor presumably deleterious mutations, in an efficient and unbiased manner. NHC method is suitable for rare and common diseases, that have an homogeneous clinical phenotype, and are likely caused by rare/uncommon variants with strong individual effects located in physiologically related genes, at least in a group of individuals with a given condition.
 
 ## Method Introduction
-We are providing the codes for gene clustering for (1) case cohort only and (2) case cohort vs control cohort.
+We are providing the codes for gene clustering for (1) case cohort only and (2) case-control cohort.
 
 Although the goal of our method is to detect presumably deleterious mutations in genes with close biological relevance from a cohort of cases with the same disease, it is difficult to provide the code starting from variant-level processing, as the variant data format and the variant filtration criteria vary hugely from one lab to another, and from one study to another. Therefore, we leave the variant-level processing to the users, who need to prepare the gene list for all the individuals under study. Our code works on gene-level, and converges the genes carrying qualifying variants into gene clusters with pathway and gene ontology enrichment.
 
@@ -29,7 +29,7 @@ Although the goal of our method is to detect presumably deleterious mutations in
 
 ## Usage
 ### Dependency
-The code is written in python3, requiring python packages scipy *(case only, case vs control)* and *rpy2 (case vs control)*
+The code is written in python3, requiring python packages scipy *(case only, case-control)* and *rpy2 (case-control)*
 
 ### Illustration  
 ![Image of NHC_Fig2](http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig2.png)
@@ -45,7 +45,7 @@ The code is written in python3, requiring python packages scipy *(case only, cas
 - column 1: sample ID
 - column 2-4: first 3 PC values for each sample *(if PCs are unavailable, use 1 for all, assuming no ethnic diversity)*
 
-**Output:** Gene clusters converged in cases *(example: output_case_only.txt, output_case_vs_control.txt)*
+**Output:** Gene clusters converged in cases *(example: output_case_only.txt, output_case_control.txt)*
 - tab-delimited text file, including a header line
 - columns:
   - Cluster ID
@@ -53,7 +53,7 @@ The code is written in python3, requiring python packages scipy *(case only, cas
   - Number of Cases
   - Gene Cluster
   - Case Cluster
-  - Cluster pvalue *(only in patient_vs_control)*
+  - Cluster pvalue *(only in patient_control)*
   - Number of Pathways
   - Pathway List
   - Top Pathway
@@ -67,7 +67,7 @@ The code is written in python3, requiring python packages scipy *(case only, cas
 python NHC_case_only.py -case test_cases.txt
 ```
 ```
-python NHC_case_vs_control.py -case test_cases.txt -ctl test_contorls.txt -pc test_pc.txt
+python NHC_case_control.py -case test_cases.txt -ctl test_contorls.txt -pc test_pc.txt
 ```
 
 **Customizable parameters:**
@@ -75,7 +75,7 @@ python NHC_case_vs_control.py -case test_cases.txt -ctl test_contorls.txt -pc te
 python NHC_case_only.py -case <txt> -w <float> -b <int> -m <float> -o <txt>
 ```
 ```
-python NHC_case_vs_control.py -case <txt> -ctl <txt> -pc <txt> -w <float> -b <int> -m <float> -o <txt>
+python NHC_case_control.py -case <txt> -ctl <txt> -pc <txt> -w <float> -b <int> -m <float> -o <txt>
 ```
 
 ### Parameters
@@ -92,7 +92,7 @@ Parameter | Type | Description | Default
 ***Note:***
 - *Stringent edge-weight cutoff (default 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, the users could relax the edge-weight cutoff to 0.95, 0.9, but no lower than 0.7 (as STRING determines 0.7 as low-confidence cutoff).*
 - *Hub gene removal is to avoid giant clusters that are formed due to the hub genes have large amount of interacting genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_connectivity.txt). The default value (-b 50) means: skipping the genes having more than 50 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-b 0).*
-- *NHC-boost has the same setting for parameters and the same output format, just call NHC-boost_case_only.py or NHC-boost_case_vs_control.py.*
+- *NHC-boost has the same setting for parameters and the same output format, just call NHC-boost_case_only.py or NHC-boost_case_control.py.*
 
 ## References
 - *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. (2021)
