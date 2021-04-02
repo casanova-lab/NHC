@@ -64,18 +64,18 @@ The code is written in python3, requiring python packages scipy *(case only, cas
 ### Commands
 **Default parameters:**
 ```
-python NHC_case_only.py -case test_cases.txt
+python NHC_case_only.pyc -case test_cases.txt
 ```
 ```
-python NHC_case_control.py -case test_cases.txt -ctl test_contorls.txt -pc test_pc.txt
+python NHC_case_control.pyc -case test_cases.txt -ctl test_contorls.txt -pc test_pc.txt
 ```
 
 **Customizable parameters:**
 ```
-python NHC_case_only.py -case <txt> -w <float> -b <int> -m <float> -o <txt>
+python NHC_case_only.pyc -case <txt> -w <float> -b <int> -m <float> -o <txt>
 ```
 ```
-python NHC_case_control.py -case <txt> -ctl <txt> -pc <txt> -w <float> -b <int> -m <float> -o <txt>
+python NHC_case_control.pyc -case <txt> -ctl <txt> -pc <txt> -w <float> -b <int> -m <float> -o <txt>
 ```
 
 ### Parameters
