@@ -92,7 +92,7 @@ Parameter | Type | Description | Default
 ***Note:***
 - *Stringent edge-weight cutoff (default 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, the users could relax the edge-weight cutoff to 0.95, 0.9, but no lower than 0.7 (as STRING determines 0.7 as low-confidence cutoff).*
 - *Hub gene removal is to avoid giant clusters that are formed due to the hub genes have large amount of interacting genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_connectivity.txt). The default value (-b 50) means: skipping the genes having more than 50 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-b 0).*
-- *NHC-boost has the same setting for parameters and the same output format, just call NHC-boost_case_only.py or NHC-boost_case_control.py.*
+- *NHC-boost has the same setting for parameters and the same output format, just call NHC-boost_case_only.pyc or NHC-boost_case_control.pyc.*
 
 ## References
 - *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. (2021)
