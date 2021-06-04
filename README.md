@@ -64,18 +64,18 @@ The code is written in python3, requiring python packages scipy *(case only, cas
 ### Commands
 **Default parameters:**
 ```
-python NHC_case_only.pyc -case test_cases.txt
+python NHC_case_only.py -case test_cases.txt
 ```
 ```
-python NHC_case_control.pyc -case test_cases.txt -ctl test_contorls.txt -pc test_pc.txt
+python NHC_case_control.py -case test_cases.txt -ctl test_controls.txt -pc test_pc.txt
 ```
 
 **Customizable parameters:**
 ```
-python NHC_case_only.pyc -case <txt> -w <float> -b <int> -m <float> -o <txt>
+python NHC_case_only.py -case <txt> -w <float> -b <int> -m <float> -o <txt>
 ```
 ```
-python NHC_case_control.pyc -case <txt> -ctl <txt> -pc <txt> -w <float> -b <int> -m <float> -o <txt>
+python NHC_case_control.py -case <txt> -ctl <txt> -pc <txt> -w <float> -b <int> -m <float> -o <txt>
 ```
 
 ### Parameters
@@ -92,10 +92,10 @@ Parameter | Type | Description | Default
 ***Note:***
 - *Stringent edge-weight cutoff (default 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, the users could relax the edge-weight cutoff to 0.95, 0.9, but no lower than 0.7 (as STRING determines 0.7 as low-confidence cutoff).*
 - *Hub gene removal is to avoid giant clusters that are formed due to the hub genes have large amount of interacting genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_connectivity.txt). The default value (-b 50) means: skipping the genes having more than 50 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-b 0).*
-- *NHC-boost has the same setting for parameters and the same output format, just call NHC-boost_case_only.pyc or NHC-boost_case_control.pyc.*
+- *NHC-boost has the same setting for parameters and the same output format, just call NHC-boost_case_only.py or NHC-boost_case_control.py.*
 
 ## References
-- *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. (2021)
+- *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. (2021) [PubMed](https://pubmed.ncbi.nlm.nih.gov/34015270/)
 - *Casanova J.L. & Abel L.* The human genetic determinism of life-threatening infectious diseases: genetic heterogeneity and physiological homogeneity? *Hum Genet* (2020) [PubMed](https://pubmed.ncbi.nlm.nih.gov/32462426/)
 - *McClellan J. & King M.C.* Genetic heterogeneity in human disease. *Cell* (2010) [PubMed](https://pubmed.ncbi.nlm.nih.gov/20403315/)
 - *Povysil G. et al.* Rare-variant collapsing analyses for complex traits: guidelines and applications. *Nat Rev Genet* (2019) [PubMed](https://pubmed.ncbi.nlm.nih.gov/31605095/)
