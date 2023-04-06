@@ -12,7 +12,7 @@ We are providing the codes for gene clustering for (1) case cohort vs control co
 Although the goal of our method is to detect presumably deleterious mutations in genes with close biological relevance from a case cohort with the same disease, it is difficult to provide the code starting from variant-level processing, as the variant data format and the variant filtration criteria vary hugely from one lab to another, and from one study to another. Therefore, we leave the variant-level processing to the users, who need to prepare the candidate gene list for all the individuals under study. Our code works on gene-level, and converges the genes carrying the qualified variants into gene clusters with pathway and gene ontology enrichment.
 
 ### Flowchart
-<img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig_1.png" width="100%" height="100%">
+<img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig_1.png" width="77%" height="77%">
 
 ### Description
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on STRING, BioGRID and REACTOME databases. PPIs are required to be physical, and then weighted by STRING scores to represent the biological relevance between genes. We built an edge-weighted background biological network of 157,205 PPIs for 13,283 human genes.
@@ -28,7 +28,7 @@ Although the goal of our method is to detect presumably deleterious mutations in
 - In order to deal with large number of cases, we also provide a boost version (NHCboost), which follows the same concept of the original algorithm, but traverses each gene of a specific case only once. In other words, if a given gene of a specific case has been clustered into one cluster, it will not be traversed and clustered again in the rest of clustering iterations. The performance of NHCboost may mildly decrease, but significantly increases the computation efficiency.
 
 ## News
-- 04/2023: NHC official version-2 was released, with the updated background network and the fixed enrichment test for gene clusters.
+- 04/2023: NHC official version-2 was released, with the updated background network and the updated enrichment test for gene clusters.
 - 06/2021: "A computational approach for detecting physiological homogeneity in the midst of genetic heterogeneity" that introduces NHC method was published in [*AJHG*](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3).
 - 12/2020: NHC official version-1 was released.
 
