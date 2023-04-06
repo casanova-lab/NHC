@@ -2,19 +2,19 @@
 NHC: A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity *(LICENSE: CC BY-NC-ND 4.0)*
 
 ## Background
-The human genetic dissection of a growing range of clinical phenotypes is facing the challenge of genetic heterogeneity. Emerging data suggest that physiological homogeneity connects the products of genes whose variations underlie a given phenotype. While gene burden approaches have been used to identify genetic signals in case-control studies, it is underpowered in genetically heterogenous cohorts, and does not account for biological relevance between genes.
+The human genetic dissection of a growing range of clinical phenotypes is facing the challenge of genetic heterogeneity. Emerging data suggest that physiological homogeneity connects the gene products whose variations underlie a given phenotype. Gene burden tests are to identify genetic signals in case-control studies by assuming genetic homogeneity, which are underpowered in genetically heterogenous cohorts.
 
-We therefore developed a computational genome-wide method (NHC) to systematically converge genes of biological proximity on a background biological interaction network, and capture the gene clusters that harbor presumably deleterious mutations, in an efficient and unbiased manner. NHC method is suitable for rare and common diseases, that have an homogeneous clinical phenotype, and are likely caused by rare/uncommon variants with strong individual effects located in physiologically related genes, at least in a group of individuals with a given condition.
+We therefore developed NHC method to systematically converge genes of biological proximity on a background biological interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with an homogeneous clinical phenotype, which are likely caused by rare/uncommon variants with strong individual effects in physiologically related genes.
 
-## Method Introduction
-We are providing the codes for gene clustering for (1) case cohort only and (2) case-control cohort.
+## Introduction
+We are providing the codes for gene clustering for (1) case cohort vs control cohort, and (2) case cohort only.
 
-Although the goal of our method is to detect presumably deleterious mutations in genes with close biological relevance from a cohort of cases with the same disease, it is difficult to provide the code starting from variant-level processing, as the variant data format and the variant filtration criteria vary hugely from one lab to another, and from one study to another. Therefore, we leave the variant-level processing to the users, who need to prepare the gene list for all the individuals under study. Our code works on gene-level, and converges the genes carrying qualifying variants into gene clusters with pathway and gene ontology enrichment.
+Although the goal of our method is to detect presumably deleterious mutations in genes with close biological relevance from a case cohort with the same disease, it is difficult to provide the code starting from variant-level processing, as the variant data format and the variant filtration criteria vary hugely from one lab to another, and from one study to another. Therefore, we leave the variant-level processing to the users, who need to prepare the candidate gene list for all the individuals under study. Our code works on gene-level, and converges the genes carrying the qualified variants into gene clusters with pathway and gene ontology enrichment.
 
 ### Flowchart
 <img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig_1.png" width="100%" height="100%">
 
-### Brief Description
+### Description
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on BioGRID, IntAct and REACTOME databases. PPIs are weighted by using the scores from STRING database to represent the level of biological relevance between genes. We obtained an edge-weighted background biological network of 202,057 PPIs for 15,585 human genes.
 
 - By providing the gene list in case cohort after variant filtration, NHC traverses all genes of all cases in the edge-weighted background network, and iteratively converge genes with biological proximity into gene clusters. The algorithm starts from one gene of one case, and iteratively searches for the closest gene in the rest of the cases that is above the edge-weight cutoff. We used STRING score ≥ 0.99, a stringent default, to converge the clusters of the highest biological relevance. Each round of clustering stops when all cases have been visited or no other gene in the unvisited cases is above the edge-weight cutoff, and then outputs one gene cluster and its corresponding case cluster. The algorithm will resume the clustering by starting from another gene of this case, until every gene of every case has been used as the start point for clustering once.
@@ -26,6 +26,9 @@ Although the goal of our method is to detect presumably deleterious mutations in
 - Enrichment will be conducted on pathways (187 KEGG and 1,533 REACTOME pathways) and gene ontologies (GO) (8,992 biological process (BP) and 2,812 molecular function (MF)). We use p-value 1e-5 as the significance cutoff for pathway/GO enrichment.
 
 - In order to deal with large cohorts of cases, we also provide a boost version (NHC-boost) of the gene clustering algorithm, which follows the same concept of the original algorithm, but traverses each gene of a specific case only once. In other words, if a given gene of a specific case has been clustered into one cluster, it will not be traversed and clustered again in the rest of clustering iterations. The performance of NHC-boost may mildly decrease, but significantly increases the computation efficiency.
+
+## News
+- Feb 2023: NHC official version-2 was released, with an additional program for processing VCF files in batch, and an additional output parameter 'BPHunter_HIGHRISK' (YES/NO) for identifying more promising candidate variants.
 
 ## Usage
 ### Dependency
@@ -92,7 +95,7 @@ Parameter | Type | Description | Default
 ***Note:***
 - *Stringent edge-weight cutoff (default 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, the users could relax the edge-weight cutoff to 0.95, 0.9, but no lower than 0.7 (as STRING determines 0.7 as low-confidence cutoff).*
 - *Hub gene removal is to avoid giant clusters that are formed due to the hub genes have large amount of interacting genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_connectivity.txt). The default value (-b 50) means: skipping the genes having more than 50 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-b 0).*
-- *NHC-boost has the same setting for parameters and the same output format, just call NHC-boost_case_only.py or NHC-boost_case_control.py.*
+- *NHCboost has the same setting for parameters and the same output format, just call NHCboost_case_only.py or NHCboost_case_control.py.*
 
 ## References
 - *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. *Am J Hum Genet* (2021) [PubMed](https://pubmed.ncbi.nlm.nih.gov/34015270/)
