@@ -64,7 +64,7 @@ The code is written in python3, requiring python packages scipy *(case_only, cas
   - GO BP list
   - GO MF list
 
-### Commands
+### Commands & Parameters
 **Default parameters:**
 ```
 python NHC_case_control.py -case test_cases.txt -ctl test_controls.txt -pc test_pc.txt
@@ -80,8 +80,6 @@ python NHC_case_control.py -case -ctl -pc -w -h -m -o
 ```
 python NHC_case_only.py -case -w -h -m -o
 ```
-
-### Parameters
 Parameter | Type | Description | Default
 ----------|------|-------------|--------------
 *-case*|file|gene list per case (incl. a header line)|na
