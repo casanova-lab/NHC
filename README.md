@@ -88,7 +88,7 @@ Parameter | Type | Description | Default
 *-w*|float|edge-weight cutoff, based on STRING score [0.7~1]|0.99
 *-h*|int|remove hub genes with high connectivity, use 0 to include all genes|100
 *-m*|float|merge overlapped clusters (overlapping ratio = common/union genes)|0.5
-*-o*|text|output filename|output_timestamp.txt
+*-o*|text|output filename|output_timestamp
 
 ***Note:***
 - *Stringent edge-weight cutoff (default: 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, then users could relax the edge-weight cutoff to 0.95 or 0.9, but no lower than 0.7 (as STRING determines 0.7 as confidence cutoff).*
