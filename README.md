@@ -12,7 +12,7 @@ We are providing the codes for gene clustering for (1) case cohort vs control co
 Although the goal of our method is to detect presumably deleterious mutations in genes with close biological relevance from a case cohort with the same disease, it is difficult to provide the code starting from variant-level processing, as the variant data format and the variant filtration criteria vary hugely from one lab to another, and from one study to another. Therefore, we leave the variant-level processing to the users, who need to prepare the candidate gene list for all the individuals under study. Our code works on gene-level, and converges the genes carrying the qualified variants into gene clusters with pathway and gene ontology enrichment.
 
 ### Flowchart
-<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_1.png" width="77%" height="77%">
+<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_1.png" width="60%" height="60%">
 
 ### Description
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on STRING, BioGRID and REACTOME databases. PPIs are required to be physical, and then weighted by STRING scores to represent the biological relevance between genes. We built an edge-weighted background biological network of 157,205 PPIs for 13,283 human genes.
@@ -96,7 +96,7 @@ Parameter | Type | Description | Default
 - *NHCboost has the same input/output format and the same parameter configurations, just call NHCboost_case_only.py or NHCboost_case_control.py.*
 
 ### Illustration  
-<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_2.png" width="77%" height="77%">
+<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_2.png" width="60%" height="60%">
 
 ## References
 - *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. [*Am J Hum Genet* (2021)](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3)
