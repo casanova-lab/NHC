@@ -75,10 +75,10 @@ python NHC_case_only.py -case test_cases.txt
 
 **Customizable parameters:**
 ```
-python NHC_case_control.py -case -ctl -pc -w -h -m -o
+python NHC_case_control.py -case -ctl -pc -w -b -m -o
 ```
 ```
-python NHC_case_only.py -case -w -h -m -o
+python NHC_case_only.py -case -w -b -m -o
 ```
 Parameter | Type | Description | Default
 ----------|------|-------------|--------------
@@ -86,7 +86,7 @@ Parameter | Type | Description | Default
 *-ctl*|file|gene list per control (incl. a header line)|na
 *-pc*|file|3 pc value for all samples (incl. a header line)|na
 *-w*|float|edge-weight cutoff, based on STRING score [0.7~1]|0.99
-*-h*|int|remove hub genes with high connectivity, use 0 to include all genes|100
+*-b*|int|remove hub genes with high connectivity, use 0 to include all genes|100
 *-m*|float|merge overlapped clusters (overlapping ratio = common/union genes)|0.5
 *-o*|text|output filename|output_timestamp
 
