@@ -28,11 +28,13 @@ Although the goal of our method is to detect presumably deleterious mutations in
 - In order to deal with large cohorts of cases, we also provide a boost version (NHC-boost) of the gene clustering algorithm, which follows the same concept of the original algorithm, but traverses each gene of a specific case only once. In other words, if a given gene of a specific case has been clustered into one cluster, it will not be traversed and clustered again in the rest of clustering iterations. The performance of NHC-boost may mildly decrease, but significantly increases the computation efficiency.
 
 ## News
-- Feb 2023: NHC official version-2 was released, with an additional program for processing VCF files in batch, and an additional output parameter 'BPHunter_HIGHRISK' (YES/NO) for identifying more promising candidate variants.
+- 04/2023: NHC official version-2 was released, with the updated background network and the fixed enrichment test for gene clusters.
+- 06/2021: "A computational approach for detecting physiological homogeneity in the midst of genetic heterogeneity" that introduces NHC method was published in AJHG.
+- 12/2020: NHC official version-1 was released.
 
 ## Usage
 ### Dependency
-The code is written in python3, requiring python packages scipy *(case only, case-control)* and *rpy2 (case-control)*
+The code is written in python3, requiring python packages scipy *(case_only, case_control)* and *rpy2 (case_control)*
 
 ### Illustration  
 <img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig_2.png" width="77%" height="77%">
