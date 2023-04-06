@@ -37,6 +37,9 @@ Current version: version-2
 ### Dependency
 The code is written in python3, requiring python packages scipy *(case_only, case_control)* and *rpy2 (case_control)*
 
+### Illustration  
+<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_2.png" width="60%" height="60%">
+
 ### File Format
 **Input:** Candidate gene list in cases and controls *(example: test_cases.txt, test_controls.txt)*
 - tab-delimited text file, including a header line
@@ -94,9 +97,6 @@ Parameter | Type | Description | Default
 - *Stringent edge-weight cutoff (default: 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, then users could relax the edge-weight cutoff to 0.95 or 0.9, but no lower than 0.7 (as STRING determines 0.7 as confidence cutoff).*
 - *Hub gene removal is to avoid giant clusters that are formed due to the large number of interactions with hub genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_Network_Connectivity.txt). The default value (-h 100) means: skipping the genes having more than 100 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-h 0).*
 - *NHCboost has the same input/output format and the same parameter configurations, just call NHCboost_case_only.py or NHCboost_case_control.py.*
-
-### Illustration  
-<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_2.png" width="60%" height="60%">
 
 ## References
 - *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. [*Am J Hum Genet* (2021)](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3)
