@@ -95,8 +95,7 @@ Parameter | Type | Description | Default
 - *NHC-boost has the same setting for parameters and the same output format, just call NHC-boost_case_only.py or NHC-boost_case_control.py.*
 
 ## References
-- *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. *Am J Hum Genet
-* (2021) [PubMed](https://pubmed.ncbi.nlm.nih.gov/34015270/)
+- *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. *Am J Hum Genet* (2021) [PubMed](https://pubmed.ncbi.nlm.nih.gov/34015270/)
 - *Casanova J.L. & Abel L.* The human genetic determinism of life-threatening infectious diseases: genetic heterogeneity and physiological homogeneity? *Hum Genet* (2020) [PubMed](https://pubmed.ncbi.nlm.nih.gov/32462426/)
 - *McClellan J. & King M.C.* Genetic heterogeneity in human disease. *Cell* (2010) [PubMed](https://pubmed.ncbi.nlm.nih.gov/20403315/)
 - *Povysil G. et al.* Rare-variant collapsing analyses for complex traits: guidelines and applications. *Nat Rev Genet* (2019) [PubMed](https://pubmed.ncbi.nlm.nih.gov/31605095/)
