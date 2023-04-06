@@ -41,7 +41,7 @@ The code is written in python3, requiring python packages scipy *(case_only, cas
 <img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig_2.png" width="77%" height="77%">
 
 ### File Format
-**Input:** Gene list in cases and controls *(example: test_cases.txt, test_controls.txt)*
+**Input:** Candidate gene list in cases and controls *(example: test_cases.txt, test_controls.txt)*
 - tab-delimited text file, including a header line
 - column 1: sample ID
 - column 2: gene list separated by ',' without space
@@ -49,7 +49,7 @@ The code is written in python3, requiring python packages scipy *(case_only, cas
 **Input:** PC (principal component) table for cases and controls *(example: test_pc.txt)*
 - tab-delimited text file, including a header line
 - column 1: sample ID
-- column 2-4: first 3 PC values for each sample *(if PCs are unavailable, use 1 for all, assuming no ethnic diversity)*
+- column 2-4: first 3 PCs for each sample *(if no PC, use 1 for all, assuming no ethnic diversity)*
 
 **Output:** Gene clusters converged in cases *(example: output_case_only.txt, output_case_control.txt)*
 - tab-delimited text file, including a header line
