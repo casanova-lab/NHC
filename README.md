@@ -29,7 +29,7 @@ Although the goal of our method is to detect presumably deleterious mutations in
 
 ## News
 - 04/2023: NHC official version-2 was released, with the updated background network and the fixed enrichment test for gene clusters.
-- 06/2021: "A computational approach for detecting physiological homogeneity in the midst of genetic heterogeneity" that introduces NHC method was published in AJHG.
+- 06/2021: "A computational approach for detecting physiological homogeneity in the midst of genetic heterogeneity" that introduces NHC method was published in [*AJHG*](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3).
 - 12/2020: NHC official version-1 was released.
 
 ## Usage
@@ -54,35 +54,36 @@ The code is written in python3, requiring python packages scipy *(case_only, cas
 **Output:** Gene clusters converged in cases *(example: output_case_only.txt, output_case_control.txt)*
 - tab-delimited text file, including a header line
 - columns:
-  - Cluster ID
-  - Number of Genes
-  - Number of Cases
-  - Gene Cluster
-  - Case Cluster
-  - Cluster pvalue *(only in patient_control)*
-  - Number of Pathways
-  - Pathway List
-  - Top Pathway
-  - Top Pathway pvalue
-  - GO BP List
-  - GO MF List
+  - cluster ID
+  - number of genes
+  - number of cases
+  - gene cluster
+  - case cluster
+  - cluster pvalue *(only in case_control)*
+  - number of pathways
+  - pathway list
+  - top pathway
+  - top pathway pvalue
+  - GO BP list
+  - GO MF list
 
 ### Commands
 **Default parameters:**
 ```
-python NHC_case_only.py -case test_cases.txt
-```
-```
 python NHC_case_control.py -case test_cases.txt -ctl test_controls.txt -pc test_pc.txt
+```
+```
+python NHC_case_only.py -case test_cases.txt
 ```
 
 **Customizable parameters:**
 ```
-python NHC_case_only.py -case <txt> -w <float> -b <int> -m <float> -o <txt>
+python NHC_case_control.py -case -ctl -pc -w -h -m -o
 ```
 ```
-python NHC_case_control.py -case <txt> -ctl <txt> -pc <txt> -w <float> -b <int> -m <float> -o <txt>
+python NHC_case_only.py -case -w -h -m -o
 ```
+
 
 ### Parameters
 Parameter | Type | Description | Default
@@ -90,15 +91,15 @@ Parameter | Type | Description | Default
 *-case*|file|gene list per case (incl. a header line)|na
 *-ctl*|file|gene list per control (incl. a header line)|na
 *-pc*|file|3 pc value for all samples (incl. a header line)|na
-*-w*|float|edge-weight cutoff, based on STRING score [0~1]|0.99
-*-b*|int|remove hub genes with high connectivity, use 0 to include all genes|50
+*-w*|float|edge-weight cutoff, based on STRING score [0.7~1]|0.99
+*-h*|int|remove hub genes with high connectivity, use 0 to include all genes|100
 *-m*|float|merge overlapped clusters (overlapping ratio = common/union genes)|0.5
 *-o*|text|output filename|output_timestamp.txt
 
 ***Note:***
-- *Stringent edge-weight cutoff (default 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, the users could relax the edge-weight cutoff to 0.95, 0.9, but no lower than 0.7 (as STRING determines 0.7 as low-confidence cutoff).*
-- *Hub gene removal is to avoid giant clusters that are formed due to the hub genes have large amount of interacting genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_connectivity.txt). The default value (-b 50) means: skipping the genes having more than 50 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-b 0).*
-- *NHCboost has the same setting for parameters and the same output format, just call NHCboost_case_only.py or NHCboost_case_control.py.*
+- *Stringent edge-weight cutoff (default: 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, then users could relax the edge-weight cutoff to 0.95 or 0.9, but no lower than 0.7 (as STRING determines 0.7 as confidence cutoff).*
+- *Hub gene removal is to avoid giant clusters that are formed due to the large amount of interactions with hub genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_Network_Connectivity.txt). The default value (-h 100) means: skipping the genes having more than 100 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-h 0).*
+- *NHCboost has the same parameter configurations and the same output format, just call NHCboost_case_only.py or NHCboost_case_control.py.*
 
 ## References
 - *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. [*Am J Hum Genet* (2021)](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3)
