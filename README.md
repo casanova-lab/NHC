@@ -102,10 +102,10 @@ Parameter | Type | Description | Default
 
 ## References
 - *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. [*Am J Hum Genet* (2021)](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3)
-- *Casanova J.L. & Abel L.* The human genetic determinism of life-threatening infectious diseases: genetic heterogeneity and physiological homogeneity? *Hum Genet* (2020) [PubMed](https://pubmed.ncbi.nlm.nih.gov/32462426/)
-- *McClellan J. & King M.C.* Genetic heterogeneity in human disease. *Cell* (2010) [PubMed](https://pubmed.ncbi.nlm.nih.gov/20403315/)
-- *Povysil G. et al.* Rare-variant collapsing analyses for complex traits: guidelines and applications. *Nat Rev Genet* (2019) [PubMed](https://pubmed.ncbi.nlm.nih.gov/31605095/)
-- *Itan Y. et al.* The human gene connectome as a map of short cuts for morbid allele discovery. *PNAS* (2013) [PubMed](https://pubmed.ncbi.nlm.nih.gov/23509278/)
+- *Casanova J.L. & Abel L.* The human genetic determinism of life-threatening infectious diseases: genetic heterogeneity and physiological homogeneity? [*Hum Genet* (2020)](https://pubmed.ncbi.nlm.nih.gov/32462426/)
+- *McClellan J. & King M.C.* Genetic heterogeneity in human disease. [*Cell* (2010)](https://pubmed.ncbi.nlm.nih.gov/20403315/)
+- *Povysil G. et al.* Rare-variant collapsing analyses for complex traits: guidelines and applications. [*Nat Rev Genet* (2019)](https://pubmed.ncbi.nlm.nih.gov/31605095/)
+- *Itan Y. et al.* The human gene connectome as a map of short cuts for morbid allele discovery. [*PNAS* (2013)](https://pubmed.ncbi.nlm.nih.gov/23509278/)
 
 ## Contact
 > **Author:** Peng Zhang, Ph.D.
