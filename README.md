@@ -4,7 +4,7 @@ NHC: A computational approach to detect physiological homogeneity in the midst o
 ## Background
 The human genetic dissection of a growing range of clinical phenotypes is facing the challenge of genetic heterogeneity. Emerging data suggest that physiological homogeneity connects the gene products whose variations underlie a given phenotype. Gene burden tests are to identify genetic signals in case-control studies by assuming genetic homogeneity, which are underpowered in genetically heterogenous cohorts.
 
-We developed NHC method to systematically converge genes of biological proximity on a background biological interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with an homogeneous clinical phenotype, which are likely caused by rare/uncommon variants with strong individual effects in physiologically related genes.
+We developed NHC method to systematically converge genes of biological proximity on a background biological interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with a homogeneous clinical phenotype, which are likely caused by rare/uncommon variants with strong individual effects in physiologically related genes.
 
 ## Introduction
 We are providing the codes for gene clustering for (1) case cohort vs control cohort, and (2) case cohort only.
@@ -21,7 +21,7 @@ Although the goal of our method is to detect presumably deleterious mutations in
 
 - The initial output gene clusters are then iteratively merged, if one is a superset/subset of another, or the two most-overlapping clusters sharing over 50% (default) genes, thereby generating gene clusters that are more distinct from each other.
 
-- Determine the statistical significance of each gene cluster in cases versus controls by principle components (PC) adjusted cluster-level enrichment. *(this step will be skipped, if users run case_only)*
+- Determine the statistical significance of each gene cluster in cases versus controls by principal components (PC) adjusted cluster-level enrichment. *(this step will be skipped, if users run case_only)*
 
 - Enrichment on pathways (187 KEGG and 1,533 REACTOME pathways) and gene ontologies (GO) (8,992 biological process (BP) and 2,812 molecular function (MF)). We use p-value 1e-5 as the significance cutoff.
 
@@ -92,8 +92,8 @@ Parameter | Type | Description | Default
 
 ***Note:***
 - *Stringent edge-weight cutoff (default: 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, then users could relax the edge-weight cutoff to 0.95 or 0.9, but no lower than 0.7 (as STRING determines 0.7 as confidence cutoff).*
-- *Hub gene removal is to avoid giant clusters that are formed due to the large amount of interactions with hub genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_Network_Connectivity.txt). The default value (-h 100) means: skipping the genes having more than 100 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-h 0).*
-- *NHCboost has the same inout/output format and the same parameter configurations, just call NHCboost_case_only.py or NHCboost_case_control.py.*
+- *Hub gene removal is to avoid giant clusters that are formed due to the large number of interactions with hub genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_Network_Connectivity.txt). The default value (-h 100) means: skipping the genes having more than 100 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-h 0).*
+- *NHCboost has the same input/output format and the same parameter configurations, just call NHCboost_case_only.py or NHCboost_case_control.py.*
 
 ### Illustration  
 <img src="http://shiva.rockefeller.edu/NHC/NHC_GitHub_Fig_2.png" width="77%" height="77%">
