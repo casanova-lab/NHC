@@ -4,7 +4,7 @@ NHC: A computational approach to detect physiological homogeneity in the midst o
 ## Background
 The human genetic dissection of a growing range of clinical phenotypes is facing the challenge of genetic heterogeneity. Emerging data suggest that physiological homogeneity connects the gene products whose variations underlie a given phenotype. Gene burden tests are to identify genetic signals in case-control studies by assuming genetic homogeneity, which are underpowered in genetically heterogenous cohorts.
 
-We therefore developed NHC method to systematically converge genes of biological proximity on a background biological interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with an homogeneous clinical phenotype, which are likely caused by rare/uncommon variants with strong individual effects in physiologically related genes.
+We developed NHC method to systematically converge genes of biological proximity on a background biological interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with an homogeneous clinical phenotype, which are likely caused by rare/uncommon variants with strong individual effects in physiologically related genes.
 
 ## Introduction
 We are providing the codes for gene clustering for (1) case cohort vs control cohort, and (2) case cohort only.
