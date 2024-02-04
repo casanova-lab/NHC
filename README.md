@@ -40,23 +40,25 @@ The code is written in python3, requiring python packages [*scipy*](https://scip
 ### Input / Output
 **Input:** 
 
-Candidate gene list in cases and controls *(example: test_cases.txt, test_controls.txt)*
-- tab-delimited text file, including a header line
-- column 1: sample ID
-- column 2: gene list separated by ',' without space
+- The sample-gene-variant data under study *(example: test_input.txt)*
+  - Tab-delimited text file, including a header line
+  - Column 1: group (case or control)
+  - Column 2: sample ID
+  - Column 3: gene
+  - Column 4 onwards: can be any variant-level information, which will be entirely extracted in the output. 
 
-**Input:** PC (principal component) table for cases and controls *(example: test_pc.txt)*
-- tab-delimited text file, including a header line
-- column 1: sample ID
-- column 2-4: first 3 PCs for each sample *(if no PC, use 1 for all, assuming no ethnic diversity)*
+- PC (principal component) table for all samples *(example: test_pc.txt)*
+  - Tab-delimited text file, including a header line
+  - Column 1: sample ID
+  - Column 2-4: first 3 PCs for each sample *(if no PC, use 1 for all, assuming no ethnic diversity)*
 
 **Output:**
 
-Each run will create a new folder in the given path, with the folder name (NHC_output_timestampe_suffix)
+Each run will create a new folder in the given path, with the folder name (NHC_output_timestamp_suffix)
 - NHC_input_parameters.txt
   - a record of the parameters used in this run 
 - NHC_output_gene_clusters.txt
-  - the gene clusters, with the following columns:
+  - The final gene clusters converged from the input data, with the following columns:
   - Cluster ID
   - Gene Count, and Gene Cluster
   - Case Count, and Case Cluster
