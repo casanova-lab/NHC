@@ -54,20 +54,20 @@ The code is written in python3, requiring python packages [*scipy*](https://scip
 **Output:**
 
 Each run will create a new folder in the given path, with the folder name (NHC_output_timestamp_suffix)
-- NHC_input_parameters.txt
-  - A record of the parameters used in this run 
-- NHC_output_gene_clusters.txt
+- *NHC_input_parameters.txt*
+  - A record of the parameters used in this run
+- *NHC_output_gene_clusters.txt*
   - The final gene clusters converged from the input data, with the following columns:
   - Cluster ID
-  - Gene Count, and Gene Cluster
-  - Case Count, and Case Cluster
+  - Gene Count, Gene Cluster
+  - Case Count, Case Cluster
   - Cluster pValue
   - Geneset Enrichment (MSigDB_Hallmark, KEGG_Pathway, Reactome_Pathway, Wiki_Pathway, GO_BiologicalProcess, GO_MolecularFunction)
-- Folder: variant_files
-  - NHC_output_gene_cluster_1...n_variants.txt, which provides the sample/gene/variant information for each gene cluster, while following the exact format of the input file.
-- Folder: network_files
-  - NHC_output_gene_cluster_1...n_network.csv, which provides the network file for each gene cluster, that can be imported to Gephi or Cytoscape software for visualization.
-  - NHC_output_gene_cluster_1...n_node.csv, which provides the case count and variant count per gene in each gene cluster, that can be used to customize the gene node size in the network visualization.
+- Folder: *variant_files*
+  - *NHC_output_gene_cluster_1...n_variants.txt, which provides the sample-gene-variant data for each gene cluster, while following the exact format of the input file.
+- Folder: *network_files*
+  - *NHC_output_gene_cluster_1...n_network.csv*, which provides the network file for each gene cluster, that can be imported to Gephi or Cytoscape software for visualization.
+  - *NHC_output_gene_cluster_1...n_node.csv*, which provides the case count and variant count per gene in each gene cluster, that can be used to customize the gene node size in the network visualization.
 
 ### Command
 **Command Parameters:**
