@@ -66,6 +66,9 @@ Each run will create a new folder in the given path, with the folder name (NHC_o
 ```
 python NHC.py -path /x/y/z/ -input test_intput.txt -pc test_pc.txt -mode 2 -edge 0.99 -hub 100 -merge 0.5 -boost N -network Y -suffix test
 ```
+```
+python NHC.py -path -input -pc -mode -edge -hub -merge -boost -network -suffix
+```
 Parameter | Type | Description | Default
 ----------|------|-------------|--------------
 *-path*|text|absolute path of the input data|na
