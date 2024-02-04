@@ -6,10 +6,9 @@ The human genetic dissection of a growing range of clinical phenotypes is facing
 
 We developed NHC method to systematically converge genes of biological proximity on a background protein-protein interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with a homogeneous clinical phenotype, which is likely caused by rare or uncommon variants with strong individual effects in physiologically related genes.
 
-### Flowchart
+### Description
 <img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_v3.png" width="77%" height="77%">
 
-### Description
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on STRING, BioGRID and REACTOME databases. PPIs are required to be physical, and weighted by STRING scores to represent the quantitative biological relevance between genes. The edge-weighted background biological network includes 158,326 PPIs for 13,612 human genes.
 
 - By providing the sample-gene-variant data from a case cohort after variant filtration, NHC traverses all genes of all cases in the edge-weighted background network, and iteratively converges genes with biological proximity into gene clusters. The algorithm starts from one gene of one case, and iteratively searches for the closest gene in the rest of the cases that is above the edge-weight cutoff (default: -edge 0.99). A stringent default is to converge the clusters of the highest biological relevance. Each round of clustering stops when all cases have been visited or no gene in the unvisited cases is above the edge-weight cutoff, and then outputs one gene cluster and its corresponding case cluster. The algorithm will resume the clustering by starting from the next gene of this case, until every gene of every case has been used as the starting point for clustering.
@@ -31,6 +30,7 @@ We developed NHC method to systematically converge genes of biological proximity
 
 ## Usage
 Current version: version-3
+
 ### Dependency
 The code is written in python3, requiring python packages [*scipy*](https://scipy.org/install/) and [*rpy2*](https://rpy2.github.io/doc/latest/html/index.html).
 
@@ -88,7 +88,7 @@ Parameter | Type | Description | Default
 *-network*|text|Y or N to generate network files for visualization|N
 *-suffix*|text|suffix for output folder|na
 
-***Note:***
+**Note:**
 - *Stringent edge-weight cutoff (default: -edge 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, then users could relax the edge-weight cutoff to 0.95 or 0.9, but no lower than 0.7.*
 - *Hub gene removal is to avoid generating giant clusters due to the large number of interactions with hub genes. The connectivity of each gene (default: -hub 100) is determined by the number of its high-confidence PPIs, meaning to skip the genes having more than 100 PPIs for clustering. If users want to include all genes for clustering, use (-hub 0).*
 - *Boost version has the same input/output format, with faster computing speed, especially when the input data (number of samples and genes) is huge. Its clustering algorithm is not as greedy as the normal version.*
