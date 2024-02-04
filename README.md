@@ -25,7 +25,7 @@ We developed NHC method to systematically converge genes of biological proximity
 ## News
 - 02/2024: NHC official version-3 was released, with new features: accepting variant-level input, outputting network files for visualization, integrated case-only and case-vs-control modes; integrated normal and boost versions; supported more geneset enrichment; and updated background protein-protein interaction network.
 - 04/2023: NHC official version-2 was released, with new features: updated background protein-protein interaction network; and updated cluster-level enrichment test.
-- 06/2021: "A computational approach for detecting physiological homogeneity in the midst of genetic heterogeneity" that introduces NHC method was published in [*AJHG*](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3).
+- 06/2021: "A computational approach for detecting physiological homogeneity in the midst of genetic heterogeneity" that introduces NHC method was published in [*The American Journal of Human Genetics (AJHG)*](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3).
 - 12/2020: NHC official version-1 was released.
 - 07/2020: NHC prototype was developed.
 
