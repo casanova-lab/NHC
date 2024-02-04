@@ -50,7 +50,7 @@ The code is written in python3, requiring python packages [*scipy*](https://scip
 - PC (principal component) table for all samples *(example: test_pc.txt)*
   - Tab-delimited text file, including a header line
   - Column 1: sample ID
-  - Column 2-4: first 3 PCs for each sample *(if no PC, use 1 for all, assuming no ethnic diversity)*
+  - Column 2-4: first three PCs for each sample *(if no PC, use 1 for all, assuming no ethnic diversity)*
 
 **Output:**
 
