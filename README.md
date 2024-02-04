@@ -7,7 +7,7 @@ The human genetic dissection of a growing range of clinical phenotypes is facing
 We developed NHC method to systematically converge genes of biological proximity on a background protein-protein interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with a homogeneous clinical phenotype, which is likely caused by rare or uncommon variants with strong individual effects in physiologically related genes.
 
 ## Description
-<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_v3.png" width="77%" height="77%">
+<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_v3.png" width="77%" height="77%" align="middle">
 
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on STRING, BioGRID and REACTOME databases. PPIs are required to be physical, and weighted by STRING scores to represent the quantitative biological relevance between genes. The edge-weighted background biological network includes 158,326 PPIs for 13,612 human genes.
 
