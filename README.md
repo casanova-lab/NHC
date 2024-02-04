@@ -61,13 +61,14 @@ Each run will create a new folder in the given path, with the folder name (NHC_o
   - Geneset Enrichment (MSigDB_Hallmark, KEGG_Pathway, Reactome_Pathway, Wiki_Pathway, GO_BiologicalProcess, GO_MolecularFunction)
 
 
-### Command & Parameters
-**Command:**
-```
-python NHC.py -path /x/y/z/ -input test_intput.txt -pc test_pc.txt -mode 2 -edge 0.99 -hub 100 -merge 0.5 -boost N -network Y -suffix test
-```
+### Command
+**Command Parameters:**
 ```
 python NHC.py -path -input -pc -mode -edge -hub -merge -boost -network -suffix
+```
+**Example Command:**
+```
+python NHC.py -path /x/y/z/ -input test_intput.txt -pc test_pc.txt -mode 2 -edge 0.99 -hub 100 -merge 0.5 -boost N -network Y -suffix test
 ```
 Parameter | Type | Description | Default
 ----------|------|-------------|--------------
