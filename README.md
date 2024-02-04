@@ -46,7 +46,6 @@ The code is written in python3, requiring python packages [*scipy*](https://scip
   - Column 2: sample ID
   - Column 3: gene
   - Column 4 onwards: can be any variant-level information, which will be entirely extracted in the output. 
-
 - PC (principal component) table for all samples *(example: test_pc.txt)*
   - Tab-delimited text file, including a header line
   - Column 1: sample ID
@@ -56,7 +55,7 @@ The code is written in python3, requiring python packages [*scipy*](https://scip
 
 Each run will create a new folder in the given path, with the folder name (NHC_output_timestamp_suffix)
 - NHC_input_parameters.txt
-  - a record of the parameters used in this run 
+  - A record of the parameters used in this run 
 - NHC_output_gene_clusters.txt
   - The final gene clusters converged from the input data, with the following columns:
   - Cluster ID
