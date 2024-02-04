@@ -40,20 +40,20 @@ The code is written in python3, requiring python packages [*scipy*](https://scip
 ### Input / Output
 **Input:** 
 
-- The sample-gene-variant data under study *(example: test_input.txt)*
+- The sample-gene-variant data under study (example: *test_input.txt*)
   - Tab-delimited text file, including a header line
   - Column 1: group (case or control)
   - Column 2: sample ID
   - Column 3: gene
   - Column 4 onwards: can be any variant-level information, which will be entirely extracted in the output. 
-- PC (principal component) table for all samples *(example: test_pc.txt)*
+- The principal component (PC) table for all samples (example: *test_pc.txt*)
   - Tab-delimited text file, including a header line
   - Column 1: sample ID
-  - Column 2-4: first three PCs for each sample *(if no PC, use 1 for all, assuming no ethnic diversity)*
+  - Column 2-4: first three PCs for each sample (if no PC, use 1 for all, assuming no ethnic diversity)
 
 **Output:**
 
-Each run will create a new folder in the given path, with the folder name (NHC_output_timestamp_suffix)
+Each run will create a new folder in the given path, with the folder name (*NHC_output_timestamp_suffix*)
 - *NHC_input_parameters.txt*
   - A record of the parameters used in this run
 - *NHC_output_gene_clusters.txt*
@@ -64,10 +64,10 @@ Each run will create a new folder in the given path, with the folder name (NHC_o
   - Cluster pValue
   - Geneset Enrichment (MSigDB_Hallmark, KEGG_Pathway, Reactome_Pathway, Wiki_Pathway, GO_BiologicalProcess, GO_MolecularFunction)
 - Folder: *variant_files*
-  - *NHC_output_gene_cluster_1...n_variants.txt, which provides the sample-gene-variant data for each gene cluster, while following the exact format of the input file.
+  - *NHC_output_gene_cluster_1...n_variants.txt* (provides the sample-gene-variant data for each gene cluster, following the exact format of the input file)
 - Folder: *network_files*
-  - *NHC_output_gene_cluster_1...n_network.csv*, which provides the network file for each gene cluster, that can be imported to Gephi or Cytoscape software for visualization.
-  - *NHC_output_gene_cluster_1...n_node.csv*, which provides the case count and variant count per gene in each gene cluster, that can be used to customize the gene node size in the network visualization.
+  - *NHC_output_gene_cluster_1...n_network.csv* (provides the network file for each gene cluster, that can be imported to Gephi or Cytoscape software for visualization)
+  - *NHC_output_gene_cluster_1...n_node.csv*, (provides the case count and variant count per gene in each gene cluster, that can be used to visualize the gene node size)
 
 ### Command
 **Command Parameters:**
