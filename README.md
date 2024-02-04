@@ -7,7 +7,7 @@ The human genetic dissection of a growing range of clinical phenotypes is facing
 We developed NHC method to systematically converge genes of biological proximity on a background protein-protein interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with a homogeneous clinical phenotype, which is likely caused by rare or uncommon variants with strong individual effects in physiologically related genes.
 
 ### Flowchart
-<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_v3.png" width="77%" height="77%">
+<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_v3.png" width="88%" height="88%">
 
 ### Description
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on STRING, BioGRID and REACTOME databases. PPIs are required to be physical, and then weighted by STRING scores to represent the biological relevance between genes. We built an edge-weighted background biological network of 157,205 PPIs for 13,283 human genes.
@@ -25,7 +25,7 @@ We developed NHC method to systematically converge genes of biological proximity
 ## News
 - 02/2024: NHC official version-3 was released, with new features: accepting variant-level input, outputting network files for visualization, integrated case-only and case-vs-control modes; integrated normal and boost versions; supported more geneset enrichment; and updated background protein-protein interaction network.
 - 04/2023: NHC official version-2 was released, with new features: updated background protein-protein interaction network; and updated cluster-level enrichment test.
-- 06/2021: "A computational approach for detecting physiological homogeneity in the midst of genetic heterogeneity" that introduces NHC method was published in [*The American Journal of Human Genetics (AJHG)*](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3).
+- 06/2021: "A computational approach for detecting physiological homogeneity in the midst of genetic heterogeneity" that introduces NHC method was published in [*Am J Hum Genet (AJHG)*](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3).
 - 12/2020: NHC official version-1 was released.
 - 07/2020: NHC prototype was developed.
 
