@@ -48,38 +48,36 @@ The code is written in python3, requiring python packages [*scipy*](https://scip
 - column 1: sample ID
 - column 2-4: first 3 PCs for each sample *(if no PC, use 1 for all, assuming no ethnic diversity)*
 
-**Output:** Gene clusters converged in cases *(example: output_case_only.txt, output_case_control.txt)*
-- tab-delimited text file, including a header line
-- columns:
-  - cluster ID
-  - number of genes
-  - number of cases
-  - gene cluster
-  - case cluster
-  - cluster pvalue *(only in case_control)*
-  - number of pathways
-  - pathway list
-  - top pathway
-  - top pathway pvalue
-  - GO BP list
-  - GO MF list
+**Output:** 
+Each run will create a new folder in the given path, with the folder name (NHC_output_timestampe_suffix)
+- NHC_input_parameters.txt
+  - a record of the parameters used in this run 
+- NHC_output_gene_clusters.txt
+  - the gene clusters, with the following columns:
+  - Cluster ID
+  - Gene Count, and Gene Cluster
+  - Case Count, and Case Cluster
+  - Cluster pValue
+  - Geneset Enrichment (MSigDB_Hallmark, KEGG_Pathway, Reactome_Pathway, Wiki_Pathway, GO_BiologicalProcess, GO_MolecularFunction)
 
-### Commands & Parameters
-**Default parameters:**
+
+### Command & Parameters
+**Command:**
 ```
-python NHC.py -path /xxx/yyy/zzz/ -input test_intput.txt -pc test_pc.txt -mode 2 -edge 0.99 -hub 100 -merge 0.5 -boost N -network Y -suffix test
+python NHC.py -path /x/y/z/ -input test_intput.txt -pc test_pc.txt -mode 2 -edge 0.99 -hub 100 -merge 0.5 -boost N -network Y -suffix test
 ```
 Parameter | Type | Description | Default
 ----------|------|-------------|--------------
-*-path*|file|gene list per case (incl. a header line)|na
-*-input*|file|gene list per control (incl. a header line)|na
-*-mode*|file|3 pc value for all samples (incl. a header line)|na
-*-edge*|float|edge-weight cutoff, based on STRING score [0.7~1]|0.99
-*-hub*|int|remove hub genes with high connectivity, use 0 to include all genes|100
-*-merge*|float|merge overlapped clusters (overlapping ratio = common/union genes)|0.5
-*-boost*|text|output filename|output_timestamp
-*-network*|text|output filename|output_timestamp
-*-suffix*|text|output filename|output_timestamp
+*-path*|text|absolute path of the input data|na
+*-input*|file|input file for samples, genes, and variants (including header)|na
+*-pc*|file|three principal components for all samples (including header)|na
+*-mode*|int|1 for case-only analysis, 2 for case-vs-control analysis|1
+*-edge*|float|edge weight cutoff, range: 0.7~1|0.99
+*-hub*|int|remove hub genes with high connectivity, use 0 to keep all genes|100
+*-merge*|float|merge overlapped gene clusters, range: 0~1|0.5
+*-boost*|text|Y or N to use boost version|N
+*-network*|text|Y or N to generate network files for visualization|N
+*-suffix*|text|suffix for output folder|na
 
 ***Note:***
 - *Stringent edge-weight cutoff (default: 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, then users could relax the edge-weight cutoff to 0.95 or 0.9, but no lower than 0.7 (as STRING determines 0.7 as confidence cutoff).*
