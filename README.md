@@ -89,9 +89,10 @@ Parameter | Type | Description | Default
 *-suffix*|text|suffix for output folder|na
 
 ***Note:***
-- *Stringent edge-weight cutoff (default: 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, then users could relax the edge-weight cutoff to 0.95 or 0.9, but no lower than 0.7 (as STRING determines 0.7 as confidence cutoff).*
-- *Hub gene removal is to avoid giant clusters that are formed due to the large number of interactions with hub genes. The connectivity of each gene is determined by the number of PPIs above STRING score 0.9 (Data_Network_Connectivity.txt). The default value (-b 100) means: skipping the genes having more than 100 PPIs with edge-weight>0.9 for clustering. If users want to include all genes for clustering, use (-b 0).*
-- *NHCboost has the same input/output format and the same parameter configurations, just call NHCboost_case_only.py or NHCboost_case_control.py.*
+- *Stringent edge-weight cutoff (default: -edge 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, then users could relax the edge-weight cutoff to 0.95 or 0.9, but no lower than 0.7.*
+- *Hub gene removal is to avoid generating giant clusters due to the large number of interactions with hub genes. The connectivity of each gene (default: -hub 100) is determined by the number of its high-confidence PPIs, meaning to skip the genes having more than 100 PPIs for clustering. If users want to include all genes for clustering, use (-hub 0).*
+- *Boost version has the same input/output format, with faster computing speed, especially when the input data (number of samples and genes) is huge. Its clustering algorithm is not as greedy as the normal version.*
+- *Network option provides the network files and gene node size files, that can be imported to Gephi or Cytoscape software, for visualizing each cluster.*
 
 ## References
 - *Zhang P. et al.* A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity. [*Am J Hum Genet* (2021)](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3)
