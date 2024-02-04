@@ -1,18 +1,13 @@
 # NHC (Network-based Heterogeneity Clustering)
 NHC: A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity *(LICENSE: CC BY-NC-ND 4.0)*
 
-## Background
-The human genetic dissection of a growing range of clinical phenotypes is facing the challenge of genetic heterogeneity. Emerging data suggest that physiological homogeneity connects the gene products whose variations underlie a given phenotype. Gene burden tests are to identify genetic signals in case-control studies by assuming genetic homogeneity, which are underpowered in genetically heterogenous cohorts.
-
-We developed NHC method to systematically converge genes of biological proximity on a background biological interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with a homogeneous clinical phenotype, which are likely caused by rare/uncommon variants with strong individual effects in physiologically related genes.
-
 ## Introduction
-We are providing the codes for gene clustering for (1) case cohort vs control cohort, and (2) case cohort only.
+The human genetic dissection of a growing range of clinical phenotypes is facing the challenge of genetic heterogeneity. Emerging data suggest that physiological homogeneity connects the gene products whose variations underlie a given phenotype. Gene burden tests are to identify genetic signals in case-control studies by assuming genetic homogeneity, which can be underpowered in genetically heterogeneous cohorts.
 
-Although the goal of our method is to detect presumably deleterious mutations in genes with close biological relevance from a case cohort with the same disease, it is difficult to provide the code starting from variant-level processing, as the variant data format and the variant filtration criteria vary hugely from one lab to another, and from one study to another. Therefore, we leave the variant-level processing to the users, who need to prepare the candidate gene list for all the individuals under study. Our code works on gene-level, and converges the genes carrying the qualified variants into gene clusters with pathway and gene ontology enrichment.
+We developed NHC method to systematically converge genes of biological proximity on a background protein-protein interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with a homogeneous clinical phenotype, which is likely caused by rare or uncommon variants with strong individual effects in physiologically related genes.
 
 ### Flowchart
-<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_1.png" width="60%" height="60%">
+<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_ver3_a.png" width="60%" height="60%">
 
 ### Description
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on STRING, BioGRID and REACTOME databases. PPIs are required to be physical, and then weighted by STRING scores to represent the biological relevance between genes. We built an edge-weighted background biological network of 157,205 PPIs for 13,283 human genes.
@@ -28,17 +23,19 @@ Although the goal of our method is to detect presumably deleterious mutations in
 - In order to deal with large number of cases, we also provide a boost version (NHCboost), which follows the same concept of the original algorithm, but traverses each gene of a specific case only once. In other words, if a given gene of a specific case has been clustered into one cluster, it will not be traversed and clustered again in the rest of clustering iterations. The performance of NHCboost may mildly decrease, but significantly increases the computation efficiency.
 
 ## News
-- 04/2023: NHC official version-2 was released, with the updates on background network and cluster-level enrichment test.
+- 02/2024: NHC official version-3 was released, with new features: accepting variant-level input, outputting network files for visualization, integrated case-only and case-vs-control modes; integrated normal and boost versions; supported more geneset enrichment; and updated background protein-protein interaction network.
+- 04/2023: NHC official version-2 was released, with new features: updated background protein-protein interaction network; and updated cluster-level enrichment test.
 - 06/2021: "A computational approach for detecting physiological homogeneity in the midst of genetic heterogeneity" that introduces NHC method was published in [*AJHG*](https://www.cell.com/ajhg/fulltext/S0002-9297(21)00154-3).
 - 12/2020: NHC official version-1 was released.
+- 07/2020: NHC prototype was developed.
 
 ## Usage
-Current version: version-2
+Current version: version-3
 ### Dependency
-The code is written in python3, requiring python packages scipy *(case_only, case_control)* and *rpy2 (case_control)*
+The code is written in python3, requiring python packages [*scipy*](https://scipy.org/install/) and [*rpy2*](https://rpy2.github.io/doc/latest/html/index.html).
 
 ### Illustration  
-<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_2.png" width="60%" height="60%">
+<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_ver3_b.png" width="60%" height="60%">
 
 ### File Format
 **Input:** Candidate gene list in cases and controls *(example: test_cases.txt, test_controls.txt)*
@@ -70,28 +67,19 @@ The code is written in python3, requiring python packages scipy *(case_only, cas
 ### Commands & Parameters
 **Default parameters:**
 ```
-python NHC_case_control.py -case test_cases.txt -ctl test_controls.txt -pc test_pc.txt
-```
-```
-python NHC_case_only.py -case test_cases.txt
-```
-
-**Customizable parameters:**
-```
-python NHC_case_control.py -case -ctl -pc -w -b -m -o
-```
-```
-python NHC_case_only.py -case -w -b -m -o
+python NHC.py -path /xxx/yyy/zzz/ -input test_intput.txt -pc test_pc.txt -mode 2 -edge 0.99 -hub 100 -merge 0.5 -boost N -network Y -suffix test
 ```
 Parameter | Type | Description | Default
 ----------|------|-------------|--------------
-*-case*|file|gene list per case (incl. a header line)|na
-*-ctl*|file|gene list per control (incl. a header line)|na
-*-pc*|file|3 pc value for all samples (incl. a header line)|na
-*-w*|float|edge-weight cutoff, based on STRING score [0.7~1]|0.99
-*-b*|int|remove hub genes with high connectivity, use 0 to include all genes|100
-*-m*|float|merge overlapped clusters (overlapping ratio = common/union genes)|0.5
-*-o*|text|output filename|output_timestamp
+*-path*|file|gene list per case (incl. a header line)|na
+*-input*|file|gene list per control (incl. a header line)|na
+*-mode*|file|3 pc value for all samples (incl. a header line)|na
+*-edge*|float|edge-weight cutoff, based on STRING score [0.7~1]|0.99
+*-hub*|int|remove hub genes with high connectivity, use 0 to include all genes|100
+*-merge*|float|merge overlapped clusters (overlapping ratio = common/union genes)|0.5
+*-boost*|text|output filename|output_timestamp
+*-network*|text|output filename|output_timestamp
+*-suffix*|text|output filename|output_timestamp
 
 ***Note:***
 - *Stringent edge-weight cutoff (default: 0.99) is used to converge the gene clusters of the highest biological relevance. If the case cohort is small or the gene candidates are few, then users could relax the edge-weight cutoff to 0.95 or 0.9, but no lower than 0.7 (as STRING determines 0.7 as confidence cutoff).*
@@ -103,7 +91,7 @@ Parameter | Type | Description | Default
 - *Casanova J.L. & Abel L.* The human genetic determinism of life-threatening infectious diseases: genetic heterogeneity and physiological homogeneity? [*Hum Genet* (2020)](https://pubmed.ncbi.nlm.nih.gov/32462426/)
 - *McClellan J. & King M.C.* Genetic heterogeneity in human disease. [*Cell* (2010)](https://pubmed.ncbi.nlm.nih.gov/20403315/)
 - *Povysil G. et al.* Rare-variant collapsing analyses for complex traits: guidelines and applications. [*Nat Rev Genet* (2019)](https://pubmed.ncbi.nlm.nih.gov/31605095/)
-- *Itan Y. et al.* The human gene connectome as a map of short cuts for morbid allele discovery. [*PNAS* (2013)](https://pubmed.ncbi.nlm.nih.gov/23509278/)
+- *Itan Y. et al.* The human gene connectome as a map of shortcuts for morbid allele discovery. [*PNAS* (2013)](https://pubmed.ncbi.nlm.nih.gov/23509278/)
 
 ## Contact
 > **Author:** Peng Zhang, Ph.D.
