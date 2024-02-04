@@ -37,8 +37,10 @@ The code is written in python3, requiring python packages [*scipy*](https://scip
 ### Illustration  
 <img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_ver3_b.png" width="60%" height="60%">
 
-### File Format
-**Input:** Candidate gene list in cases and controls *(example: test_cases.txt, test_controls.txt)*
+### Input / Output
+**Input:** 
+
+Candidate gene list in cases and controls *(example: test_cases.txt, test_controls.txt)*
 - tab-delimited text file, including a header line
 - column 1: sample ID
 - column 2: gene list separated by ',' without space
@@ -48,7 +50,8 @@ The code is written in python3, requiring python packages [*scipy*](https://scip
 - column 1: sample ID
 - column 2-4: first 3 PCs for each sample *(if no PC, use 1 for all, assuming no ethnic diversity)*
 
-**Output:** 
+**Output:**
+
 Each run will create a new folder in the given path, with the folder name (NHC_output_timestampe_suffix)
 - NHC_input_parameters.txt
   - a record of the parameters used in this run 
@@ -59,7 +62,11 @@ Each run will create a new folder in the given path, with the folder name (NHC_o
   - Case Count, and Case Cluster
   - Cluster pValue
   - Geneset Enrichment (MSigDB_Hallmark, KEGG_Pathway, Reactome_Pathway, Wiki_Pathway, GO_BiologicalProcess, GO_MolecularFunction)
-
+- Folder: variant_files
+  - NHC_output_gene_cluster_1...n_variants.txt, which provides the sample/gene/variant information for each gene cluster, while following the exact format of the input file.
+- Folder: network_files
+  - NHC_output_gene_cluster_1...n_network.csv, which provides the network file for each gene cluster, that can be imported to Gephi or Cytoscape software for visualization.
+  - NHC_output_gene_cluster_1...n_node.csv, which provides the case count and variant count per gene in each gene cluster, that can be used to customize the gene node size in the network visualization.
 
 ### Command
 **Command Parameters:**
