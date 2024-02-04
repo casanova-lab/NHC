@@ -7,7 +7,7 @@ The human genetic dissection of a growing range of clinical phenotypes is facing
 We developed NHC method to systematically converge genes of biological proximity on a background protein-protein interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with a homogeneous clinical phenotype, which is likely caused by rare or uncommon variants with strong individual effects in physiologically related genes.
 
 ### Flowchart
-<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_ver3_a.png" width="60%" height="60%">
+<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_v3.png" width="60%" height="60%">
 
 ### Description
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on STRING, BioGRID and REACTOME databases. PPIs are required to be physical, and then weighted by STRING scores to represent the biological relevance between genes. We built an edge-weighted background biological network of 157,205 PPIs for 13,283 human genes.
@@ -33,9 +33,6 @@ We developed NHC method to systematically converge genes of biological proximity
 Current version: version-3
 ### Dependency
 The code is written in python3, requiring python packages [*scipy*](https://scipy.org/install/) and [*rpy2*](https://rpy2.github.io/doc/latest/html/index.html).
-
-### Illustration  
-<img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_ver3_b.png" width="60%" height="60%">
 
 ### Input / Output
 **Input:** 
@@ -63,9 +60,9 @@ Each run will create a new folder in the given path, with the folder name (*NHC_
   - Case Count, Case Cluster
   - Cluster pValue
   - Geneset Enrichment (MSigDB_Hallmark, KEGG_Pathway, Reactome_Pathway, Wiki_Pathway, GO_BiologicalProcess, GO_MolecularFunction)
-- Folder: *variant_files*
+- Folder *variant_files*
   - *NHC_output_gene_cluster_1...n_variants.txt* (provides the sample-gene-variant data for each gene cluster, following the exact format of the input file)
-- Folder: *network_files*
+- Folder *network_files*
   - *NHC_output_gene_cluster_1...n_network.csv* (provides the network file for each gene cluster, that can be imported to Gephi or Cytoscape software for visualization)
   - *NHC_output_gene_cluster_1...n_node.csv*, (provides the case count and variant count per gene in each gene cluster, that can be used to visualize the gene node size)
 
