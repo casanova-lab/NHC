@@ -1,12 +1,12 @@
 # NHC (Network-based Heterogeneity Clustering)
 NHC: A computational approach to detect physiological homogeneity in the midst of genetic heterogeneity *(LICENSE: CC BY-NC-ND 4.0)*
 
-## Introduction
+## Background
 The human genetic dissection of a growing range of clinical phenotypes is facing the challenge of genetic heterogeneity. Emerging data suggest that physiological homogeneity connects the gene products whose variations underlie a given phenotype. Gene burden tests are to identify genetic signals in case-control studies by assuming genetic homogeneity, which can be underpowered in genetically heterogeneous cohorts.
 
 We developed NHC method to systematically converge genes of biological proximity on a background protein-protein interaction network, and to capture the gene clusters that harbor presumably deleterious variants, in an unbiased manner. NHC method is suitable for studying the patient cohort with a homogeneous clinical phenotype, which is likely caused by rare or uncommon variants with strong individual effects in physiologically related genes.
 
-### Description
+## Description
 <img src="https://hgidsoft.rockefeller.edu/NHC/Figure_NHC_v3.png" width="77%" height="77%">
 
 - A large-scale network of human protein-protein interactions (PPIs) is established, based on STRING, BioGRID and REACTOME databases. PPIs are required to be physical, and weighted by STRING scores to represent the quantitative biological relevance between genes. The edge-weighted background biological network includes 158,326 PPIs for 13,612 human genes.
@@ -58,13 +58,13 @@ Each run will create a new folder in the given path, with the folder name (*NHC_
   - Cluster ID
   - Gene Count, Gene Cluster
   - Case Count, Case Cluster
-  - Cluster pValue
+  - Cluster p-value
   - Geneset Enrichment (MSigDB_Hallmark, KEGG_Pathway, Reactome_Pathway, Wiki_Pathway, GO_BiologicalProcess, GO_MolecularFunction)
 - Folder *variant_files*
   - *NHC_output_gene_cluster_1...n_variants.txt* (provides the sample-gene-variant data for each gene cluster, following the exact format of the input file)
 - Folder *network_files*
-  - *NHC_output_gene_cluster_1...n_network.csv* (provides the network file for each gene cluster, that can be imported to Gephi or Cytoscape software for visualization)
-  - *NHC_output_gene_cluster_1...n_node.csv*, (provides the case count and variant count per gene in each gene cluster, that can be used to visualize the gene node size)
+  - *NHC_output_gene_cluster_1...n_network.csv* (provides the network file for each gene cluster, which can be imported to Gephi or Cytoscape software for visualization)
+  - *NHC_output_gene_cluster_1...n_node.csv*, (provides the case count and variant count per gene in each gene cluster, which can be used to visualize the gene node size)
 
 ### Command
 **Command Parameters:**
